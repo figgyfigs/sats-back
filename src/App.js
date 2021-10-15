@@ -5,32 +5,33 @@ import BitcoinPrice from './components/DisplayPrice';
 
 function App() {
 
-  const [error, setError] = useState(null);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [items, setItems] = useState([]);
+//   const [error, setError] = useState(null);
+//   const [isLoaded, setIsLoaded] = useState(false);
+//   const [items, setItems] = useState([]);
 
-  const getAPIData = useCallback(async () => {
-    fetch('https://api.nomics.com/v1/currencies/ticker?key=&ids=BTC')
-      .then(res => res.json())
-      .then((result) => {
-        setIsLoaded(true);
-        setItems(result)
-      },
-      (error) => {
-        setIsLoaded(true);
-        setError(error);
-      })
-  }, []);  
+//   const getAPIData = useCallback(async () => {
 
-  useEffect(() => {
+//     fetch('https://api.nomics.com/v1/currencies/ticker?key=&ids=BTC')
+//       .then(res => res.json())
+//       .then((result) => {
+//         setIsLoaded(true);
+//         setItems(result)
+//       },
+//       (error) => {
+//         setIsLoaded(true);
+//         setError(error);
+//       })
+//   }, []);  
+
+//   useEffect(() => {
     
-    getAPIData();
+//     getAPIData();
 
-    const interval = setInterval(() => {
-      getAPIData()
-    }, 180000);
-    return () => clearInterval(interval);
-  }, [getAPIData]);
+//     const interval = setInterval(() => {
+//       getAPIData()
+//     }, 180000);
+//     return () => clearInterval(interval);
+//   }, [getAPIData]);
 
   return (
     <div className="App">
