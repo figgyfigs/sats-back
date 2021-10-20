@@ -8,7 +8,7 @@ function BitcoinPrice() {
 
     const getPrice = useCallback(async () => {
         
-        fetch('https://api.nomics.com/v1/currencies/ticker?key=&ids=BTC')
+        fetch('https://api.nomics.com/v1/currencies/ticker?key=1af87dc3693112bbd1b6ec94baafb018820fdce3&ids=BTC')
         .then(res => res.json())
         .then((result) => {
             setIsLoaded(true);
@@ -28,7 +28,7 @@ function BitcoinPrice() {
             getPrice()
         }, 180000);
         return () => clearInterval(interval);
-    }, [getAPIData]);
+    }, [getPrice]);
   
     return (
         <div className="App">

@@ -1,7 +1,7 @@
 import './App.css';
 import './components/DisplayText';
 import { useCallback, useEffect, useState } from 'react';
-import BitcoinPrice from './components/DisplayPrice';
+import BitcoinPrice from './api/GetPrice';
 
 function App() {
 
@@ -36,7 +36,8 @@ function App() {
   return (
     <div className="App">
       <h1>Yooo</h1>
-      <BitcoinPrice error={error} isLoaded={isLoaded} items={items} />
+      {/* <BitcoinPrice error={error} isLoaded={isLoaded} items={items} /> */}
+      <BitcoinPrice />
     </div>
   );
 }
