@@ -1,4 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
+// import DisplayPrice from './components/DisplayPrice';
+
+import DisplayPrice from "../components/DisplayPrice";
 
 function BitcoinPrice() {
     
@@ -8,7 +11,7 @@ function BitcoinPrice() {
 
     const getPrice = useCallback(async () => {
         
-        fetch('https://api.nomics.com/v1/currencies/ticker?key=1af87dc3693112bbd1b6ec94baafb018820fdce3&ids=BTC')
+        fetch('https://api.nomics.com/v1/currencies/ticker?key=&ids=BTC')
         .then(res => res.json())
         .then((result) => {
             setIsLoaded(true);
@@ -32,8 +35,7 @@ function BitcoinPrice() {
   
     return (
         <div className="App">
-            <h1>Yooo</h1>
-            <BitcoinPrice error={error} isLoaded={isLoaded} items={items} />
+            <DisplayPrice error={error} isLoaded={isLoaded} items={items} />
         </div>
     );
 }

@@ -1,4 +1,4 @@
-const BitcoinPrice = ({ error, isLoaded, items}) => {
+const DisplayPrice = ({ error, isLoaded, items}) => {
     if(error) {
         return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
@@ -16,4 +16,4 @@ const BitcoinPrice = ({ error, isLoaded, items}) => {
     }
 }
 
-export default BitcoinPrice;
+export default DisplayPrice;
