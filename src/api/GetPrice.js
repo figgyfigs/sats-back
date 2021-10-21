@@ -7,15 +7,18 @@ function BitcoinPrice() {
     
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
-    const [items, setItems] = useState([]);
+    const [price, setPrice] = useState([]);
 
     const getPrice = useCallback(async () => {
         
         fetch('https://api.nomics.com/v1/currencies/ticker?key=&ids=BTC')
         .then(res => res.json())
-        .then((result) => {
+        .then((results) => {
             setIsLoaded(true);
-            setItems(result)
+            // setItems(result);
+            results.map(result => (
+                setPrice[result.price]
+            ))
         },
         (error) => {
             setIsLoaded(true);
@@ -29,13 +32,13 @@ function BitcoinPrice() {
   
         const interval = setInterval(() => {
             getPrice()
-        }, 180000);
+        }, 30000);
         return () => clearInterval(interval);
     }, [getPrice]);
   
     return (
         <div className="App">
-            <DisplayPrice error={error} isLoaded={isLoaded} items={items} />
+            <DisplayPrice error={error} isLoaded={isLoaded} price={price} />
         </div>
     );
 }
